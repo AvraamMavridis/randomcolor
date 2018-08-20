@@ -1,5 +1,4 @@
- language: go
-  go:
-    - "1.10"
-
-script: go test
+sudo: false
+notifications:
+  email: false
+language: go
