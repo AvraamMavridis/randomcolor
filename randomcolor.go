@@ -7,11 +7,18 @@ import (
 	"time"
 )
 
-// Color RBG Type
-type Color struct {
+// RGBColor RBG Color Type
+type RGBColor struct {
 	red   int
 	green int
 	blue  int
+}
+
+// HSVColor HSV Color Type
+type HSVColor struct {
+	hue        int
+	saturation int
+	value      int
 }
 
 // GetHex Converts a decimal number to hex representations
@@ -23,13 +30,13 @@ func GetHex(num int) string {
 	return hex
 }
 
-// GetRandomColorInRgb Returns a random Color
-func GetRandomColorInRgb() Color {
+// GetRandomColorInRgb Returns a random RGBColor
+func GetRandomColorInRgb() RGBColor {
 	rand.Seed(time.Now().UnixNano())
-	var red = rand.Intn(255)
-	var green = rand.Intn(255)
-	var blue = rand.Intn(255)
-	c := Color{red, green, blue}
+	red := rand.Intn(255)
+	green := rand.Intn(255)
+	blue := rand.Intn(255)
+	c := RGBColor{red, green, blue}
 	return c
 }
 
@@ -40,7 +47,10 @@ func GetRandomColorInHex() string {
 	return hex
 }
 
-func GetRandomColorInHSV() {
+// GetRandomColorInHSV returns a random color in HSV format
+func GetRandomColorInHSV() HSVColor {
 	color := GetRandomColorInRgb()
 	math.Max(float64(color.green), float64(color.blue))
+
+	return HSVColor{0, 0, 0}
 }
