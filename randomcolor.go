@@ -2,6 +2,7 @@ package randomcolor
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"time"
 )
@@ -37,4 +38,9 @@ func GetRandomColorInHex() string {
 	color := GetRandomColorInRgb()
 	hex := "#" + GetHex(color.red) + GetHex(color.green) + GetHex(color.blue)
 	return hex
+}
+
+func GetRandomColorInHSV() {
+	color := GetRandomColorInRgb()
+	math.Max(float64(color.green), float64(color.blue))
 }
