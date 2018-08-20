@@ -2,3 +2,8 @@ sudo: false
 notifications:
   email: false
 language: go
+go:
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
+  - master
