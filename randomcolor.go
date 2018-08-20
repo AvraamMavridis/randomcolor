@@ -9,16 +9,16 @@ import (
 
 // RGBColor RBG Color Type
 type RGBColor struct {
-	red   int
-	green int
-	blue  int
+	Red   int
+	Green int
+	Blue  int
 }
 
 // HSVColor HSV Color Type
 type HSVColor struct {
-	hue        float64
-	saturation float64
-	value      float64
+	Hue        float64
+	Saturation float64
+	Value      float64
 }
 
 // GetHex Converts a decimal number to hex representations
@@ -31,15 +31,15 @@ func getHex(num int) string {
 }
 
 func rgpToHSV(color RGBColor) HSVColor {
-	max := math.Max(float64(color.red), float64(color.green))
-	max = math.Max(max, float64(color.blue))
-	min := math.Min(float64(color.red), float64(color.green))
-	min = math.Min(min, float64(color.blue))
+	max := math.Max(float64(color.Red), float64(color.Green))
+	max = math.Max(max, float64(color.Blue))
+	min := math.Min(float64(color.Red), float64(color.Green))
+	min = math.Min(min, float64(color.Blue))
 	delta := max - min
 
-	red := float64(color.red)
-	green := float64(color.green)
-	blue := float64(color.blue)
+	red := float64(color.Red)
+	green := float64(color.Green)
+	blue := float64(color.Blue)
 
 	var hue, saturation, value float64
 
@@ -72,17 +72,17 @@ func rgpToHSV(color RGBColor) HSVColor {
 // GetRandomColorInRgb Returns a random RGBColor
 func GetRandomColorInRgb() RGBColor {
 	rand.Seed(time.Now().UnixNano())
-	red := rand.Intn(255)
-	green := rand.Intn(255)
+	Red := rand.Intn(255)
+	Green := rand.Intn(255)
 	blue := rand.Intn(255)
-	c := RGBColor{red, green, blue}
+	c := RGBColor{Red, Green, blue}
 	return c
 }
 
 // GetRandomColorInHex returns a random color in HEX format
 func GetRandomColorInHex() string {
 	color := GetRandomColorInRgb()
-	hex := "#" + getHex(color.red) + getHex(color.green) + getHex(color.blue)
+	hex := "#" + getHex(color.Red) + getHex(color.Green) + getHex(color.Blue)
 	return hex
 }
 

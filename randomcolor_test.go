@@ -23,17 +23,17 @@ func TestRGBtoHex(t *testing.T) {
 	hsv := rgpToHSV(c)
 
 	expected := 120.0
-	if hsv.hue != expected {
-		t.Errorf("Hue was not calculated correctly, got: %f, expected: %f.", hsv.hue, expected)
+	if hsv.Hue != expected {
+		t.Errorf("Hue was not calculated correctly, got: %f, expected: %f.", hsv.Hue, expected)
 	}
 
 	expected2 := 23.076923076923077
-	if hsv.saturation != expected2 {
-		t.Errorf("Saturation was not calculated correctly, got: %f, expected: %f.", hsv.saturation, expected2)
+	if hsv.Saturation != expected2 {
+		t.Errorf("Saturation was not calculated correctly, got: %f, expected: %f.", hsv.Saturation, expected2)
 	}
 
 	expected3 := 50.98039215686274
-	if hsv.value != expected3 {
-		t.Errorf("Saturation was not calculated correctly, got: %f, expected: %f.", hsv.value, expected3)
+	if hsv.Value != expected3 {
+		t.Errorf("Saturation was not calculated correctly, got: %f, expected: %f.", hsv.Value, expected3)
 	}
 }
